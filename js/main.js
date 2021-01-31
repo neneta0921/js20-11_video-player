@@ -14,6 +14,7 @@ class Main {
     this.playAndPause = new PlayAndPause();
     this.playbackRate = new PlaybackRate();
     this.progressBar = new ProgressBar();
+    this.volumeControls = new VolumeControls();
     this._addEvent();
   }
 
