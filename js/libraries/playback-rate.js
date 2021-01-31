@@ -1,6 +1,5 @@
 class PlaybackRate {
-  constructor(video) {
-    this.video = video;
+  constructor() {
     this.playbackSpeed = document.querySelector('select');
     this._init();
   }
@@ -12,7 +11,7 @@ class PlaybackRate {
   _addEvent() {
     // Change Playback Speed -------------------- //
     this.playbackSpeed.addEventListener('change', () => {
-      this.video.playbackRate = this.playbackSpeed.value;
+      video.playbackRate = this.playbackSpeed.value;
     });
   }
 }

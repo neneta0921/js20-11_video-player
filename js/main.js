@@ -1,11 +1,13 @@
+const video = document.querySelector('video');
+
 class Main {
   constructor() {
-    this.video = document.querySelector('video');
     this._init();
   }
 
   _init() {
-    this.playbackRate = new PlaybackRate(this.video);
+    this.playAndPause = new PlayAndPause();
+    this.playbackRate = new PlaybackRate();
   }
 }
 
