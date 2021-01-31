@@ -10,6 +10,7 @@ class Main {
   }
 
   _init() {
+    this.fullScreen = new FullScreen();
     this.playAndPause = new PlayAndPause();
     this.playbackRate = new PlaybackRate();
     this.progressBar = new ProgressBar();
