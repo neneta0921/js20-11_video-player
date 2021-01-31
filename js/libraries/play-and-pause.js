@@ -9,7 +9,7 @@ class PlayAndPause {
     this._addEvent();
   }
 
-  _showPlayIcon() {
+  showPlayIcon() {
     this.playBtn.classList.replace('fa-pause', 'fa-play');
     this.playBtn.setAttribute('title', 'Play');
   }
@@ -19,22 +19,18 @@ class PlayAndPause {
     this.playBtn.setAttribute('title', 'Pause');
   }
 
-  _togglePlay() {
+  togglePlay() {
     if (video.paused) {
       video.play();
       this._showPauseIcon();
     } else {
       video.pause();
-      this._showPlayIcon();
+      this.showPlayIcon();
     }
   }
 
   _addEvent() {
-    // On video end, show play button icon
-    video.addEventListener('ended', () => this._showPlayIcon());
-
     // Event Listener
-    this.playBtn.addEventListener('click', () => this._togglePlay());
-    video.addEventListener('click', () => this._togglePlay());
+    this.playBtn.addEventListener('click', () => this.togglePlay());
   }
 }

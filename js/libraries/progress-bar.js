@@ -1,8 +1,7 @@
 // Progress Bar ---------------------------------- //
-const progressBar = document.querySelector('.progress-bar');
-
 class ProgressBar {
   constructor() {
+    this.progressBar = document.querySelector('.progress-bar');
     this.progressRange = document.querySelector('.progress-range');
     this.currentTime = document.querySelector('.time-elapsed');
     this.duration = document.querySelector('.time-duration');
@@ -22,8 +21,8 @@ class ProgressBar {
   }
 
   // Update progress bar as video plays
-  _updateProgress() {
-    progressBar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+  updateProgress() {
+    this.progressBar.style.width = `${(video.currentTime / video.duration) * 100}%`;
     this.currentTime.textContent = `${this._displayTime(video.currentTime)} /`;
     this.duration.textContent = `${this._displayTime(video.duration)}`;
   }
@@ -31,13 +30,12 @@ class ProgressBar {
   // Click to seek within the video
   _setProgress(e) {
     const newTime = e.offsetX / this.progressRange.offsetWidth;
-    progressBar.style.width = `${newTime * 100}%`;
+    this.progressBar.style.width = `${newTime * 100}%`;
     video.currentTime = newTime * video.duration;
   }
 
   _addEvent() {
     this.progressRange.addEventListener('click', (event) => this._setProgress(event));
-    video.addEventListener('timeupdate', () => this._updateProgress());
-    video.addEventListener('canplay', () => this._updateProgress());
+    video.addEventListener('canplay', () => this.updateProgress());
   }
 }
