@@ -22,19 +22,19 @@ class PlayAndPause {
   _togglePlay() {
     if (video.paused) {
       video.play();
-      this._showPauseIcon;
+      this._showPauseIcon();
     } else {
       video.pause();
-      showPlayIcon();
+      this._showPlayIcon();
     }
   }
 
   _addEvent() {
     // On video end, show play button icon
-    video.addEventListener('ended', this._showPlayIcon);
+    video.addEventListener('ended', () => this._showPlayIcon());
 
     // Event Listener
-    this.playBtn.addEventListener('click', this._togglePlay);
-    video.addEventListener('click', this._togglePlay);
+    this.playBtn.addEventListener('click', () => this._togglePlay());
+    video.addEventListener('click', () => this._togglePlay());
   }
 }
